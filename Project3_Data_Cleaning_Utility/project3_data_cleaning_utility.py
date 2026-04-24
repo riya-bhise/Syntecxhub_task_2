@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 =============================================================
 WEEK 2 - PROJECT 3: Correlation Heatmap & Pairwise Relationships
@@ -137,7 +138,7 @@ fig.text(0.13, 0.01,
 plt.tight_layout(rect=[0, 0.03, 1, 1])
 plt.savefig("correlation_output/01_correlation_heatmap.png", dpi=150, bbox_inches="tight")
 plt.close()
-print("  ✅ Saved: correlation_output/01_correlation_heatmap.png")
+print("  [DONE] Saved: correlation_output/01_correlation_heatmap.png")
 
 # ═══════════════════════════════════════════════════════════
 # 3.  PAIRPLOT — key variable pairs
@@ -173,7 +174,7 @@ plt.tight_layout()
 g.figure.savefig("correlation_output/02_pairplot_key_variables.png",
                  dpi=130, bbox_inches="tight")
 plt.close()
-print("  ✅ Saved: correlation_output/02_pairplot_key_variables.png")
+print("  [DONE] Saved: correlation_output/02_pairplot_key_variables.png")
 
 # ═══════════════════════════════════════════════════════════
 # 4.  SCATTER MATRIX — top 3 strongest pairs with regression
@@ -216,7 +217,7 @@ plt.tight_layout()
 plt.savefig("correlation_output/03_scatter_strongest_pairs.png",
             dpi=150, bbox_inches="tight")
 plt.close()
-print("  ✅ Saved: correlation_output/03_scatter_strongest_pairs.png")
+print("  [DONE] Saved: correlation_output/03_scatter_strongest_pairs.png")
 
 # ═══════════════════════════════════════════════════════════
 # 5.  CORRELATION BAR CHART  (feature vs Satisfaction)
@@ -252,7 +253,7 @@ plt.tight_layout()
 plt.savefig("correlation_output/04_feature_vs_satisfaction.png",
             dpi=150, bbox_inches="tight")
 plt.close()
-print("  ✅ Saved: correlation_output/04_feature_vs_satisfaction.png")
+print("  [DONE] Saved: correlation_output/04_feature_vs_satisfaction.png")
 
 # ═══════════════════════════════════════════════════════════
 # 6.  FULL SCATTER MATRIX (all variables, seaborn)
@@ -277,7 +278,7 @@ plt.tight_layout()
 fig.savefig("correlation_output/05_full_scatter_matrix.png",
             dpi=120, bbox_inches="tight")
 plt.close()
-print("  ✅ Saved: correlation_output/05_full_scatter_matrix.png")
+print("  [DONE] Saved: correlation_output/05_full_scatter_matrix.png")
 
 # ═══════════════════════════════════════════════════════════
 # 7.  SUMMARY REPORT  (TXT + Excel)
@@ -317,14 +318,14 @@ INTERPRETATION SUMMARY
 1. Strongest Positive Correlation:
    {strongest_pos["Variable_1"]} vs {strongest_pos["Variable_2"]}
    r = {strongest_pos["Correlation"]:.3f}
-   → As {strongest_pos["Variable_1"]} increases, {strongest_pos["Variable_2"]} 
+   >> As {strongest_pos["Variable_1"]} increases, {strongest_pos["Variable_2"]} 
      tends to increase proportionally. This is a {'strong' if abs(strongest_pos['Correlation']) > 0.6 else 'moderate'} 
      positive linear relationship.
 
 2. Strongest Negative Correlation:
    {strongest_neg["Variable_1"]} vs {strongest_neg["Variable_2"]}
    r = {strongest_neg["Correlation"]:.3f}
-   → As {strongest_neg["Variable_1"]} increases, {strongest_neg["Variable_2"]} 
+   >> As {strongest_neg["Variable_1"]} increases, {strongest_neg["Variable_2"]} 
      tends to decrease. This inverse relationship suggests a trade-off
      between these two variables.
 
@@ -364,9 +365,9 @@ OUTPUTS
 =================================================================
 """
 
-with open("correlation_output/summary_report.txt", "w") as f:
+with open("correlation_output/summary_report.txt", "w", encoding="utf-8") as f:
     f.write(summary_text)
-print("  ✅ Saved: correlation_output/summary_report.txt")
+print("  [DONE] Saved: correlation_output/summary_report.txt")
 print(summary_text)
 
 # Excel: correlation matrix
@@ -376,8 +377,8 @@ with pd.ExcelWriter("correlation_output/correlation_matrix.xlsx", engine="openpy
         writer, sheet_name="All_Pairs_Ranked", index=False)
     df.describe().round(2).to_excel(writer, sheet_name="Dataset_Stats")
     df.to_excel(writer, sheet_name="Raw_Data", index=False)
-print("  ✅ Saved: correlation_output/correlation_matrix.xlsx")
+print("  [DONE] Saved: correlation_output/correlation_matrix.xlsx")
 
 print("\n" + "=" * 65)
-print("  Week 2 Project 3 Complete — All charts & report saved ✅")
+print("  Week 2 Project 3 Complete — All charts & report saved [DONE]")
 print("=" * 65)
